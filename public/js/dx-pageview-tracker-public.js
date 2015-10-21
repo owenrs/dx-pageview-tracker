@@ -44,8 +44,9 @@
         setInterval( trigger_counter, interval * 1000 );
 
 	    function trigger_counter(){
-			var this_page = "http://forum.piwik.org/read.php?2,1011";
-			// var this_page = window.location.href;
+			// var this_page = "http://forum.piwik.org/";
+			var this_page = window.location.href;
+
 	    	if( $('div#pwk_feedbar').length  ){
 				$.ajax({
 				         type : "post",
@@ -54,7 +55,11 @@
 				         data : { action: "dx_pvt_ajax_request", local_page : this_page },
 
 				         success: function(response) {
-				         	var html_string = PARAMS.html_string.replace( "%count%", parseInt(response) )
+				         	var count = parseInt(response);
+				         	if( 0 >= count ){
+				         		count = 1;
+				         	}
+				         	var html_string = PARAMS.html_string.replace( "%count%", count );
 				            $('div#pwk_feedbar').html( html_string );
 				         },
 				         error: function( xhr, status, error ){
