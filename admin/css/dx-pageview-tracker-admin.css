@@ -1,0 +1,19 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+form.dx-pvm-form {
+}
+
+form.dx-pvm-form div.form-row {
+    padding:10px;
+}
+
+form.dx-pvm-form div.form-row label {
+    width: 120px;
+    display:inline-block;
+    vertical-align:top;
+}
+
+
